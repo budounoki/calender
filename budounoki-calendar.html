@@ -8,7 +8,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 <style>
 * { box-sizing: border-box; margin: 0; padding: 0; }
-
+ 
 body {
   font-family: 'Noto Serif JP', serif;
   background: #f5f0e8;
@@ -19,7 +19,7 @@ body {
   padding: 20px 16px 90px;
   gap: 16px;
 }
-
+ 
 /* ===== SETTINGS PANEL ===== */
 .settings-panel {
   width: 100%;
@@ -71,13 +71,13 @@ body {
 .status-msg.ok  { background: #eaf4ec; color: #4a8a5a; display: block; }
 .status-msg.err { background: #faeaea; color: #a04040; display: block; }
 .status-msg.loading { background: #f0f0f0; color: #666; display: block; }
-
+ 
 .hint-block { margin-top: 14px; padding: 12px 14px; background: #faf7f0; border-radius: 8px; border-left: 3px solid #c8a878; }
 .hint-title { font-size: 10px; font-weight: 600; color: #8a6a40; letter-spacing: 0.1em; margin-bottom: 8px; }
 .hint-step { font-size: 10px; color: #6a5030; line-height: 1.9; letter-spacing: 0.03em; }
 .hint-step b { color: #5a4020; }
 .hint-code { display: block; margin-top: 6px; padding: 6px 10px; background: white; border-radius: 5px; font-family: monospace; font-size: 10px; color: #444; word-break: break-all; border: 1px solid #e0d4c0; }
-
+ 
 /* ===== BRANCH TABS ===== */
 .branch-selector {
   display: flex; gap: 8px; flex-wrap: wrap;
@@ -90,14 +90,14 @@ body {
   cursor: pointer; transition: all 0.25s; color: #888; text-align: center; line-height: 1.3;
 }
 .branch-btn.active { color: white; transform: translateY(-1px); box-shadow: 0 4px 14px rgba(0,0,0,0.15); }
-
+ 
 /* ===== MAIN CARD ===== */
 #calendar-card {
   width: 100%; max-width: 500px;
   background: white; border-radius: 20px;
   box-shadow: 0 8px 40px rgba(0,0,0,0.10); overflow: hidden;
 }
-
+ 
 /* HEADER */
 .card-header {
   padding: 22px 24px 18px; position: relative; overflow: hidden; transition: background 0.4s;
@@ -121,10 +121,10 @@ body {
 .month-en { font-family: 'Cormorant Garamond', serif; font-size: 11px; letter-spacing: 0.25em; color: rgba(255,255,255,0.65); font-weight: 300; }
 .month-num { font-family: 'Cormorant Garamond', serif; font-size: 58px; font-weight: 300; color: white; line-height: 0.85; }
 .header-label { font-size: 10px; letter-spacing: 0.12em; color: rgba(255,255,255,0.8); font-weight: 300; position: relative; z-index: 1; }
-
+ 
 /* BODY */
 .card-body { padding: 16px 14px 14px; }
-
+ 
 .nav-row {
   display: flex; align-items: center; justify-content: space-between; padding-bottom: 12px;
 }
@@ -134,7 +134,7 @@ body {
   font-size: 13px; color: #333; transition: all 0.2s;
 }
 .nav-center { font-size: 11px; color: #999; letter-spacing: 0.2em; font-weight: 300; }
-
+ 
 /* ===== AGE LEGEND HEADER ===== */
 .age-header {
   display: grid;
@@ -155,7 +155,7 @@ body {
 }
 .age-label.under { background: #9bbdcf; }
 .age-label.over  { background: #c4a882; }
-
+ 
 /* DAY HEADERS */
 .day-headers {
   display: grid;
@@ -165,14 +165,14 @@ body {
 .dh { text-align: center; font-size: 9px; letter-spacing: 0.05em; color: #aaa; padding: 2px 0; }
 .dh.sun { color: #c0392b; }
 .dh.sat { color: #2471a3; }
-
+ 
 /* ===== CALENDAR GRID ===== */
 .cal-grid {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   gap: 3px;
 }
-
+ 
 /* Each day cell */
 .dc {
   display: flex;
@@ -185,14 +185,14 @@ body {
 }
 .dc.empty { background: transparent; min-height: 56px; }
 .dc.past  { background: #f5f5f5; opacity: 0.4; }
-
+ 
 .dc .dn {
   font-size: 10px; color: #2a2a2a; line-height: 1;
   margin-bottom: 3px; font-weight: 400;
 }
 .dc.sun .dn { color: #c0392b; }
 .dc.sat .dn { color: #2471a3; }
-
+ 
 /* Two status rows */
 .dc .age-rows {
   display: flex;
@@ -208,11 +208,11 @@ body {
   padding: 1px 0;
   gap: 2px;
 }
-
+ 
 /* Status colours per age group */
 .age-row.under { background: rgba(155,189,207,0.18); }
 .age-row.over  { background: rgba(196,168,130,0.18); }
-
+ 
 .age-row .mark {
   font-size: 11px; line-height: 1;
 }
@@ -226,7 +226,7 @@ body {
 .s-none .mark { color: #bbb; font-size: 11px; }
 /* — past */
 .s-past .mark { color: #ccc; font-size: 11px; }
-
+ 
 /* LEGEND */
 .legend-wrap {
   margin-top: 12px;
@@ -250,7 +250,7 @@ body {
 }
 .legend-age-box.under { background: #9bbdcf; }
 .legend-age-box.over  { background: #c4a882; }
-
+ 
 .legend-status {
   display: flex;
   justify-content: center;
@@ -261,7 +261,7 @@ body {
 .li .few-m { color: #c87941; }
 .li .full-tag { font-size: 9px; font-weight: 700; color: #c0392b; }
 .li .none-m { color: #bbb; }
-
+ 
 /* Save button */
 .save-btn {
   position: fixed; bottom: 22px; left: 50%; transform: translateX(-50%);
@@ -275,7 +275,7 @@ body {
 </style>
 </head>
 <body>
-
+ 
 <!-- SETTINGS -->
 <div class="settings-panel">
   <button class="settings-toggle" onclick="toggleSettings(this)">
@@ -290,7 +290,7 @@ body {
     </div>
     <button class="load-btn" onclick="loadFromSheet()">📥　データを読み込む</button>
     <div class="status-msg" id="status-msg"></div>
-
+ 
     <div class="hint-block">
       <div class="hint-title">📋 スプレッドシートの形式</div>
       <div class="hint-step">
@@ -305,7 +305,7 @@ body {
     </div>
   </div>
 </div>
-
+ 
 <!-- BRANCH TABS -->
 <div class="branch-selector">
   <button class="branch-btn" data-branch="kyoto"    onclick="switchBranch('kyoto')">京都院</button>
@@ -313,7 +313,7 @@ body {
   <button class="branch-btn" data-branch="yokohama" onclick="switchBranch('yokohama')">横浜院</button>
   <button class="branch-btn" data-branch="urawa"    onclick="switchBranch('urawa')">浦和院</button>
 </div>
-
+ 
 <!-- CALENDAR CARD -->
 <div id="calendar-card">
   <div class="card-header" id="card-header">
@@ -330,30 +330,30 @@ body {
     </div>
     <div class="header-label">宿泊産後ケア　空室カレンダー</div>
   </div>
-
+ 
   <div class="card-body">
     <div class="nav-row">
       <button class="nav-arrow" onclick="changeMonth(-1)">&#8249;</button>
       <div class="nav-center" id="nav-label">2026年 4月</div>
       <button class="nav-arrow" onclick="changeMonth(1)">&#8250;</button>
     </div>
-
+ 
     <!-- Age group header -->
     <div class="age-header">
       <div class="age-header-blank"></div>
       <div class="age-label under">4ヶ月未満</div>
       <div class="age-label over">4ヶ月以上</div>
     </div>
-
+ 
     <!-- Day of week headers -->
     <div class="day-headers">
       <div class="dh sun">日</div><div class="dh">月</div><div class="dh">火</div>
       <div class="dh">水</div><div class="dh">木</div><div class="dh">金</div>
       <div class="dh sat">土</div>
     </div>
-
+ 
     <div class="cal-grid" id="cal-grid"></div>
-
+ 
     <!-- Legend -->
     <div class="legend-wrap">
       <div class="legend-age">
@@ -369,9 +369,9 @@ body {
     </div>
   </div>
 </div>
-
+ 
 <button class="save-btn" id="save-btn" onclick="saveImage()">📷 画像として保存する</button>
-
+ 
 <script>
 // ===== BRANCH CONFIG =====
 const BRANCHES = {
@@ -380,7 +380,7 @@ const BRANCHES = {
   yokohama: { labelSub:'横浜院',           main:'#5cbad6', dark:'#3a96b0', light:'#e0f4fa', avail:'#4aaac4' },
   urawa:    { labelSub:'浦和院',           main:'#96cca5', dark:'#6aaa7c', light:'#e6f4e9', avail:'#7ab88a' },
 };
-
+ 
 // ===== DATA STORE =====
 // STATUS[branch][ageKey][YYYY-M][day] = 1(○)|2(△)|3(満)|4(×)
 // ageKey: 'under' = 4ヶ月未満, 'over' = 4ヶ月以上
@@ -402,7 +402,7 @@ let STATUS = {
     over:  { '2026-4': {1:1,2:1,3:1,4:1,5:2,6:2,7:3,8:3,9:2,10:1,11:1,12:1,13:1,14:1,15:2,16:1,17:1,18:1,19:2,20:1,21:1,22:1,23:1,24:1,25:2,26:1,27:1,28:1,29:2,30:1} },
   },
 };
-
+ 
 // CSV院名→branch, 年齢区分→ageKey
 const BRANCH_MAP = {
   '京都院':'kyoto','京都':'kyoto',
@@ -414,12 +414,12 @@ const AGE_MAP = {
   '4ヶ月未満':'under','4か月未満':'under','4カ月未満':'under','未満':'under',
   '4ヶ月以上':'over','4か月以上':'over','4カ月以上':'over','以上':'over',
 };
-
+ 
 const MONTH_EN = ['January','February','March','April','May','June','July','August','September','October','November','December'];
 let currentBranch = 'kyoto';
 let currentYear = 2026, currentMonth = 4;
 const today = new Date();
-
+ 
 // ===== SETTINGS =====
 function toggleSettings(btn) {
   btn.classList.toggle('open');
@@ -448,7 +448,12 @@ function parseCSV(csvText) {
   const lines = csvText.trim().split('\n').map(l => l.split(',').map(c => c.trim().replace(/^"|"$/g, '')));
   if (lines.length < 2) { showStatus('データが空です', 'err'); return; }
   let loaded = 0;
-  for (let i = 1; i < lines.length; i++) {
+  // ヘッダー行・空白行を自動スキップ（「院名」列が見つかるまでスキップ）
+  let dataStart = 1;
+  for (let i = 0; i < lines.length; i++) {
+    if (lines[i][0] === '院名') { dataStart = i + 1; break; }
+  }
+  for (let i = dataStart; i < lines.length; i++) {
     const row = lines[i];
     if (row.length < 4) continue;
     const branch  = BRANCH_MAP[row[0]];
@@ -482,7 +487,7 @@ window.addEventListener('DOMContentLoaded', () => {
     if (saved) document.getElementById('csv-url-input').value = saved;
   } catch(e){}
 });
-
+ 
 // ===== STATUS HELPER =====
 function getStatus(ageKey, day) {
   const d = new Date(currentYear, currentMonth-1, day);
@@ -491,7 +496,7 @@ function getStatus(ageKey, day) {
   const key = `${currentYear}-${currentMonth}`;
   return STATUS[currentBranch]?.[ageKey]?.[key]?.[day] ?? 1;
 }
-
+ 
 function statusMark(s, cfg) {
   if (s === 0) return `<span class="mark" style="color:#ccc">—</span>`;
   if (s === 1) return `<span class="mark" style="color:${cfg.avail}">○</span>`;
@@ -500,7 +505,7 @@ function statusMark(s, cfg) {
   if (s === 4) return `<span class="mark" style="color:#bbb">×</span>`;
   return '';
 }
-
+ 
 // ===== RENDER =====
 function applyBranchTheme(b) {
   const cfg = BRANCHES[b];
@@ -520,59 +525,59 @@ function applyBranchTheme(b) {
     btn.onmouseleave = () => { btn.style.background = ''; btn.style.color = ''; btn.style.borderColor = ''; };
   });
 }
-
+ 
 function renderCalendar() {
   const cfg = BRANCHES[currentBranch];
   document.getElementById('nav-label').textContent     = `${currentYear}年 ${currentMonth}月`;
   document.getElementById('hdr-month-num').textContent = currentMonth;
   document.getElementById('hdr-month-en').textContent  = MONTH_EN[currentMonth - 1];
-
+ 
   const grid = document.getElementById('cal-grid');
   grid.innerHTML = '';
   const firstDay    = new Date(currentYear, currentMonth - 1, 1).getDay();
   const daysInMonth = new Date(currentYear, currentMonth, 0).getDate();
-
+ 
   // Empty cells
   for (let i = 0; i < firstDay; i++) {
     const e = document.createElement('div'); e.className = 'dc empty'; grid.appendChild(e);
   }
-
+ 
   for (let d = 1; d <= daysInMonth; d++) {
     const dow  = (firstDay + d - 1) % 7;
     const su   = getStatus('under', d);
     const so   = getStatus('over',  d);
     const isPast = su === 0;
-
+ 
     const cell = document.createElement('div');
     let cls = 'dc';
     if (isPast) cls += ' past';
     if (dow === 0) cls += ' sun';
     if (dow === 6) cls += ' sat';
     cell.className = cls;
-
+ 
     // Date number
     const dnEl = document.createElement('span');
     dnEl.className = 'dn';
     dnEl.textContent = d;
     cell.appendChild(dnEl);
-
+ 
     if (!isPast) {
       // Two age rows
       const rowsEl = document.createElement('div');
       rowsEl.className = 'age-rows';
-
+ 
       // Under row
       const underRow = document.createElement('div');
       underRow.className = 'age-row under';
       underRow.innerHTML = statusMark(su, cfg);
       rowsEl.appendChild(underRow);
-
+ 
       // Over row
       const overRow = document.createElement('div');
       overRow.className = 'age-row over';
       overRow.innerHTML = statusMark(so, cfg);
       rowsEl.appendChild(overRow);
-
+ 
       cell.appendChild(rowsEl);
     } else {
       // Past: just dash
@@ -581,11 +586,11 @@ function renderCalendar() {
       rowsEl.innerHTML = `<div class="age-row under"><span class="mark" style="color:#ccc">—</span></div><div class="age-row over"><span class="mark" style="color:#ccc">—</span></div>`;
       cell.appendChild(rowsEl);
     }
-
+ 
     grid.appendChild(cell);
   }
 }
-
+ 
 function switchBranch(b) {
   currentBranch = b;
   applyBranchTheme(b);
@@ -597,7 +602,7 @@ function changeMonth(delta) {
   if (currentMonth < 1)  { currentMonth = 12; currentYear--; }
   renderCalendar();
 }
-
+ 
 function saveImage() {
   const selector = document.querySelector('.branch-selector');
   const saveBtn  = document.getElementById('save-btn');
@@ -617,9 +622,10 @@ function saveImage() {
     settings.style.display = '';
   });
 }
-
+ 
 // Init
 switchBranch('kyoto');
 </script>
 </body>
 </html>
+ 
