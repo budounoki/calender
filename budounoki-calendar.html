@@ -481,11 +481,18 @@ function parseCSV(csvText) {
     showStatus('読み込めませんでした。形式を確認してください', 'err');
   }
 }
+// デフォルトのCSV URL（スプレッドシートを公開したURL）
+const DEFAULT_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTmZZoZBdTSHepAjWwBOAvB9o-rmyCxpPskLCLTcLqT-UjB7B_7LmX2PDxgwH8lEIuBQZhgCyANMmfV/pub?output=csv&gid=0';
+ 
 window.addEventListener('DOMContentLoaded', () => {
   try {
-    const saved = localStorage.getItem('budounoki_csv_url');
-    if (saved) document.getElementById('csv-url-input').value = saved;
-  } catch(e){}
+    const saved = localStorage.getItem('budounoki_csv_url') || DEFAULT_CSV_URL;
+    document.getElementById('csv-url-input').value = saved;
+    // ページを開いたら自動でスプレッドシートを読み込む
+    loadFromSheet();
+  } catch(e){
+    loadFromSheet();
+  }
 });
  
 // ===== STATUS HELPER =====
