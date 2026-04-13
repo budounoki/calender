@@ -434,15 +434,29 @@ async function loadFromSheet() {
   const url = document.getElementById('csv-url-input').value.trim();
   if (!url) { showStatus('URLを入力してください', 'err'); return; }
   showStatus('読み込み中...', 'loading');
-  try {
-    const proxyUrl = 'https://api.allorigins.win/raw?url=' + encodeURIComponent(url);
-    const res = await fetch(proxyUrl);
-    if (!res.ok) throw new Error('通信エラー: ' + res.status);
-    const text = await res.text();
-    parseCSV(text);
-  } catch(e) {
-    showStatus('読み込み失敗: ' + e.message, 'err');
+ 
+  // 複数のプロキシを順番に試す
+  const proxies = [
+    u => u,
+    u => 'https://corsproxy.io/?' + encodeURIComponent(u),
+    u => 'https://api.allorigins.win/raw?url=' + encodeURIComponent(u),
+    u => 'https://api.codetabs.com/v1/proxy?quest=' + encodeURIComponent(u),
+  ];
+ 
+  for (const makeUrl of proxies) {
+    try {
+      const fetchUrl = makeUrl(url);
+      const res = await fetch(fetchUrl);
+      if (!res.ok) continue;
+      const text = await res.text();
+      if (text.length < 10) continue;
+      parseCSV(text);
+      return;
+    } catch(e) {
+      continue;
+    }
   }
+  showStatus('読み込み失敗: スプレッドシートがウェブ公開されているか確認してください。', 'err');
 }
 function parseCSV(csvText) {
   const lines = csvText.trim().split('\n').map(l => l.split(',').map(c => c.trim().replace(/^"|"$/g, '')));
